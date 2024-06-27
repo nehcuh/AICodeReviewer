@@ -27,3 +27,9 @@
 1. 仓库将简单包含的示例代码并按照功能点进行迭代
 2. 仓库包含多分支以方便验证 PR 时文件差异
 3. PR 时文件差异将作为基础输入用于验证 AI 代码审查能力
+## 5. 功能点 1
+1. 新增模块 `error` 与 `web`
+2. `error` 模块定义了项目可能的 `Error` 类型并 reexport 了 `Result` 和 `Error`
+3. 在 `web` 模块新增 `routes_hello` 模块
+4. `routes_hello` 增加了对 `Query` 和 `Path` 两种入参方式的支持
+5. 在 `main` 中增加了 `routes_hello` 的支持

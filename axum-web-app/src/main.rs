@@ -1,6 +1,16 @@
+use tokio::net::TcpListener;
+
+use axum::Router;
+
 mod error;
 mod web;
 
-fn main() {
-    println!("Hello, world!");
+#[tokio::main]
+async fn main() {
+    let routes = Router::new().merge(web::routes_hello::routes());
+
+    let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
+    axum::serve(listener, routes.into_make_service())
+        .await
+        .unwrap();
 }
